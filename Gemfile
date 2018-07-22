@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.19.1'
 
+gem 'rails_12factor'
+
+gem 'bootstrap-sass'
+
 group :development do
   gem 'listen', '~> 3.0.5'
 end
