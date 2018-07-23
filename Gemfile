@@ -39,6 +39,8 @@ gem 'rails_12factor'
 
 gem 'bootstrap-sass'
 
+gem 'devise'
+
 group :development do
   gem 'listen', '~> 3.0.5'
 end
