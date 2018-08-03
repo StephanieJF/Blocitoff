@@ -1,3 +1,6 @@
 <h1>My User Page</h1>
 <p><span class="emphasis">Email:</span> <%= current_user.email.capitalize %></p>
-<h4> My To-Do Lists: </h4>
+<h4> My To-Do Items: </h4>
+<%= render partial: 'items/item', locals: { item: @item} %>
+
+<h4><%= link_to "Add New To-Do Item", new_item_path %></h4>
