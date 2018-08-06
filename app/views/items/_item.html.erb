@@ -1,5 +1,6 @@
 <ul>
   <% @user.items.each do |item| %>
-    <li><%= item.name %></li>
+    <li><%= item.name %>
+    <%= link_to "", item, method: :delete, class: 'glyphicon glyphicon-ok' %></li>
 <% end %>
 </ul>
