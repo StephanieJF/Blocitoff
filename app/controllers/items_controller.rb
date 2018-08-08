@@ -18,20 +18,21 @@ class ItemsController < ApplicationController
       flash.now[:alert] = "There was an error saving the item. Please try again."
       render :new
     end
+  end
 
     def destroy
       @item = Item.find(params[:id])
       @item.destroy
 
-      if @item.destroy
-        flash[:notice] = "\"#{@item.name}\" was deleted successfully."
-        redirect_to users_show_path
-      else
-        flash.now[:alert] = "There was an error deleting the post."
-        render users_show_path
+      respond_to do |format|
+        if @item.destroy
+          format.html { redirect_to users_show_path }
+          format.js
+        else
+          format.html { redirect_to users_show_path }
+        end
       end
     end
-  end
 
   private
   def item_params
