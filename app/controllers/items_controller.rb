@@ -20,6 +20,20 @@ class ItemsController < ApplicationController
     end
   end
 
+    def destroy
+      @item = Item.find(params[:id])
+      @item.destroy
+
+      respond_to do |format|
+        if @item.destroy
+          format.html { redirect_to users_show_path }
+          format.js
+        else
+          format.html { redirect_to users_show_path }
+        end
+      end
+    end
+
   private
   def item_params
     params.require(:item).permit(:name)

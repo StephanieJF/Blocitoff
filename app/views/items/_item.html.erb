@@ -1,5 +1,10 @@
-<ul>
-  <% @user.items.each do |item| %>
-    <li><%= item.name %></li>
-<% end %>
-</ul>
+<div>
+  <ul>
+    <% @user.items.each do |item| %>
+      <li id="item-<%= item.id %>">
+        <%= item.name %>
+        <%= link_to "", item_path(item), method: :delete, data: {confirm: 'Are you sure you want to delete?'}, class: 'glyphicon glyphicon-ok', remote: true %>
+      </li>
+    <% end %>
+  </ul>
+</div>
