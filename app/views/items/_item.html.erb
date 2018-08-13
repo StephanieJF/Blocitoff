@@ -2,7 +2,8 @@
   <ul>
     <% @user.items.each do |item| %>
       <li id="item-<%= item.id %>">
-        <%= item.name %>
+        <strong><%= item.name %></strong>
+        <small><%= "Created " + distance_of_time_in_words(Time.now, item.created_at, include_seconds:true) + " ago." %></small>
         <%= link_to "", item_path(item), method: :delete, data: {confirm: 'Are you sure you want to delete?'}, class: 'glyphicon glyphicon-ok', remote: true %>
       </li>
     <% end %>
